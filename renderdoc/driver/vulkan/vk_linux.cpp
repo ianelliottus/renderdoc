@@ -85,6 +85,11 @@ void VulkanReplay::GetOutputWindowDimensions(uint64_t id, int32_t &w, int32_t &h
 
   OutputWindow &outw = m_OutputWindows[id];
 
+#ifdef ANDROID
+  w = 500;
+  h = 500;//FIXME
+  __android_log_print(ANDROID_LOG_INFO, LOGCAT_TAG, "GetOutputWindowDimensions: %i, %i", w, h);
+#else
   if(outw.m_WindowSystem == eWindowingSystem_Xlib)
   {
     XWindowAttributes attr = {};
@@ -104,4 +109,5 @@ void VulkanReplay::GetOutputWindowDimensions(uint64_t id, int32_t &w, int32_t &h
 
     free(geom);
   }
+#endif
 }
