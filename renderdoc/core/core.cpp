@@ -217,6 +217,7 @@ void RenderDoc::Initialise()
   m_RemoteIdent = 0;
   m_RemoteThread = 0;
 
+#ifndef ANDROID
   if(!IsReplayApp())
   {
     Process::ApplyEnvironmentModification();
@@ -245,6 +246,7 @@ void RenderDoc::Initialise()
       m_RemoteThread = Threading::CreateThread(RemoteAccessServerThread, (void *)sock);
     }
   }
+#endif
 
   // set default capture log - useful for when hooks aren't setup
   // through the UI (and a log file isn't set manually)
@@ -289,6 +291,10 @@ void RenderDoc::Initialise()
       RecreateCrashHandler();
     }
   }
+
+#ifdef ANDROID
+	QueueCapture(20);// Cant press F12 on Android
+#endif
 }
 
 RenderDoc::~RenderDoc()
