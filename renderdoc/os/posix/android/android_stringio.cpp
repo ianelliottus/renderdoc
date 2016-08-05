@@ -63,11 +63,7 @@ namespace FileIO
 {
 const char *GetTempRootPath()
 {
-#if 1
-  return "/data/local/tmp";
-#else
   return "/sdcard";
-#endif
 }
 
 void GetExecutableFilename(string &selfName)
