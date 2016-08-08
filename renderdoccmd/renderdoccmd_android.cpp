@@ -29,11 +29,15 @@
 #include <unistd.h>
 #include <string>
 
+#if 1
+#include <android_native_app_glue.h>
+#else
 #include <android_native_app_glue.h>
 #define ANativeActivity_onCreate __attribute__((visibility("default"))) ANativeActivity_onCreate
 extern "C" {
 #include <android_native_app_glue.c>
 }
+#endif
 
 #include <android/log.h>
 #define LOGCAT_TAG "renderdoc"

@@ -19,12 +19,13 @@ CMD_DIR := $(SRC_DIR)/renderdoccmd
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := renderdoccmd
-LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_SRC_FILES += $(CMD_DIR)/renderdoccmd.cpp \
                    $(CMD_DIR)/renderdoccmd_android.cpp
 LOCAL_C_INCLUDES += $(SRC_DIR)/renderdoc/api sources/android/native_app_glue
 LOCAL_CFLAGS += -DRENDERDOC_PLATFORM_POSIX -w
 LOCAL_CPP_FEATURES += rtti
+LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
+LOCAL_LDLIBS    := -llog -landroid
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,android/native_app_glue)
