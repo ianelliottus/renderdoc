@@ -616,6 +616,7 @@ Serialiser::Serialiser(const char *path, Mode mode, bool debugMode)
 
   if(mode == READING)
   {
+RDCLOG("Will try to FileIO::fopen(\"%s.txt\") for rb", m_Filename.c_str());
     m_ReadFileHandle = FileIO::fopen(m_Filename.c_str(), "rb");
 
     if(!m_ReadFileHandle)
@@ -1279,6 +1280,7 @@ void Serialiser::FlushToDisk()
     if(m_DebugEnabled && !m_DebugText.empty())
     {
       FILE *dbgFile = FileIO::fopen((m_Filename + ".txt").c_str(), "wb");
+RDCLOG("Tried to FileIO::fopen(\"%s.txt\") for wb", m_Filename.c_str());
 
       if(!dbgFile)
       {
@@ -1292,6 +1294,7 @@ void Serialiser::FlushToDisk()
       }
     }
 
+RDCLOG("Will try to FileIO::fopen(\"%s.txt\") for w+b", m_Filename.c_str());
     FILE *binFile = FileIO::fopen(m_Filename.c_str(), "w+b");
 
     if(!binFile)
