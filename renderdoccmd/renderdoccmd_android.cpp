@@ -105,6 +105,7 @@ vector<string> getRenderdoccmdArgs()
   {
     string sub;
     iss >> sub;
+    __android_log_print(ANDROID_LOG_INFO, LOGCAT_TAG, "%s() found input string \"%s\"", __FUNCTION__, sub.c_str());
     ret.push_back(sub);
   }
   return ret;
