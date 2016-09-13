@@ -62,7 +62,7 @@ const char *GetTempRootPath()
   GetExecutableFilename(ret);
 
   // This folder is writable even if the APK does not have manifest write permissions.
-  ret = "/data/data/" + ret + "/files";
+  ret = "/sdcard/" + ret + "/files";
   return ret.c_str();
 }
 
