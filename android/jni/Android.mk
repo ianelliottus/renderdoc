@@ -6,45 +6,48 @@ SRC_DIR := $(LOCAL_PATH)/../../
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := renderdoc
-LOCAL_SRC_FILES += $(SRC_DIR)/common/common.cpp \
-                   $(SRC_DIR)/common/dds_readwrite.cpp \
-                   $(SRC_DIR)/core/core.cpp \
-                   $(SRC_DIR)/core/image_viewer.cpp \
-                   $(SRC_DIR)/core/target_control.cpp \
-                   $(SRC_DIR)/core/remote_server.cpp \
-                   $(SRC_DIR)/core/replay_proxy.cpp \
-                   $(SRC_DIR)/core/resource_manager.cpp \
-                   $(SRC_DIR)/data/glsl_shaders.cpp \
-                   $(SRC_DIR)/hooks/hooks.cpp \
-                   $(SRC_DIR)/maths/camera.cpp \
-                   $(SRC_DIR)/maths/matrix.cpp \
-                   $(SRC_DIR)/os/os_specific.cpp \
-                   $(SRC_DIR)/replay/app_api.cpp \
-                   $(SRC_DIR)/replay/capture_options.cpp \
-                   $(SRC_DIR)/replay/entry_points.cpp \
-                   $(SRC_DIR)/replay/replay_output.cpp \
-                   $(SRC_DIR)/replay/replay_renderer.cpp \
-                   $(SRC_DIR)/replay/type_helpers.cpp \
-                   $(SRC_DIR)/serialise/grisu2.cpp \
-                   $(SRC_DIR)/serialise/serialiser.cpp \
-                   $(SRC_DIR)/serialise/string_utils.cpp \
-                   $(SRC_DIR)/serialise/utf8printf.cpp \
-                   $(SRC_DIR)/3rdparty/jpeg-compressor/jpgd.cpp \
-                   $(SRC_DIR)/3rdparty/jpeg-compressor/jpge.cpp \
-                   $(SRC_DIR)/3rdparty/lz4/lz4.c \
-                   $(SRC_DIR)/3rdparty/stb/stb_impl.c \
-                   $(SRC_DIR)/3rdparty/tinyexr/tinyexr.cpp \
-                   $(SRC_DIR)/os/posix/android/android_stringio.cpp \
-                   $(SRC_DIR)/os/posix/android/android_callstack.cpp \
-                   $(SRC_DIR)/os/posix/android/android_process.cpp \
-                   $(SRC_DIR)/os/posix/android/android_threading.cpp \
-                   $(SRC_DIR)/os/posix/posix_hook.cpp \
-                   $(SRC_DIR)/os/posix/posix_network.cpp \
-                   $(SRC_DIR)/os/posix/posix_process.cpp \
-                   $(SRC_DIR)/os/posix/posix_stringio.cpp \
-                   $(SRC_DIR)/os/posix/posix_threading.cpp \
-                   $(SRC_DIR)/os/posix/posix_libentry.cpp
+RDOC_SRC_DIR := $(SRC_DIR)/renderdoc/
+LOCAL_SRC_FILES += $(RDOC_SRC_DIR)/common/common.cpp \
+                   $(RDOC_SRC_DIR)/common/dds_readwrite.cpp \
+                   $(RDOC_SRC_DIR)/core/core.cpp \
+                   $(RDOC_SRC_DIR)/core/image_viewer.cpp \
+                   $(RDOC_SRC_DIR)/core/target_control.cpp \
+                   $(RDOC_SRC_DIR)/core/remote_server.cpp \
+                   $(RDOC_SRC_DIR)/core/replay_proxy.cpp \
+                   $(RDOC_SRC_DIR)/core/resource_manager.cpp \
+                   $(RDOC_SRC_DIR)/data/glsl_shaders.cpp \
+                   $(RDOC_SRC_DIR)/hooks/hooks.cpp \
+                   $(RDOC_SRC_DIR)/maths/camera.cpp \
+                   $(RDOC_SRC_DIR)/maths/matrix.cpp \
+                   $(RDOC_SRC_DIR)/os/os_specific.cpp \
+                   $(RDOC_SRC_DIR)/replay/app_api.cpp \
+                   $(RDOC_SRC_DIR)/replay/capture_options.cpp \
+                   $(RDOC_SRC_DIR)/replay/entry_points.cpp \
+                   $(RDOC_SRC_DIR)/replay/replay_output.cpp \
+                   $(RDOC_SRC_DIR)/replay/replay_renderer.cpp \
+                   $(RDOC_SRC_DIR)/replay/type_helpers.cpp \
+                   $(RDOC_SRC_DIR)/serialise/grisu2.cpp \
+                   $(RDOC_SRC_DIR)/serialise/serialiser.cpp \
+                   $(RDOC_SRC_DIR)/serialise/string_utils.cpp \
+                   $(RDOC_SRC_DIR)/serialise/utf8printf.cpp \
+                   $(RDOC_SRC_DIR)/3rdparty/jpeg-compressor/jpgd.cpp \
+                   $(RDOC_SRC_DIR)/3rdparty/jpeg-compressor/jpge.cpp \
+                   $(RDOC_SRC_DIR)/3rdparty/lz4/lz4.c \
+                   $(RDOC_SRC_DIR)/3rdparty/stb/stb_impl.c \
+                   $(RDOC_SRC_DIR)/3rdparty/tinyexr/tinyexr.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/android/android_stringio.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/android/android_callstack.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/android/android_process.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/android/android_threading.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_hook.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_network.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_process.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_stringio.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_threading.cpp \
+                   $(RDOC_SRC_DIR)/os/posix/posix_libentry.cpp
 # Note: posix_libentry must be the last (above) so that library_loaded is
 # called after static objects are constructed.
 
+LOCAL_C_INCLUDES += $(RDOC_SRC_DIR) \
+                    $(RDOC_SRC_DIR)/3rdparty \
 
