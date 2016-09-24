@@ -49,7 +49,7 @@ LOCAL_SRC_FILES += $(RDOC_SRC_DIR)/common/common.cpp \
 # called after static objects are constructed.
 
 LOCAL_C_INCLUDES += $(RDOC_SRC_DIR) \
-                    $(RDOC_SRC_DIR)/3rdparty \
+                    $(RDOC_SRC_DIR)/3rdparty
 
 LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
                 -DRENDERDOC_SUPPORT_VULKAN \
