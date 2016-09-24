@@ -53,9 +53,20 @@ LOCAL_C_INCLUDES += $(RDOC_SRC_DIR) \
 
 LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
                 -DRENDERDOC_SUPPORT_VULKAN \
-		-DRENDERDOC_PLATFORM_POSIX \
-		-DRENDERDOC_PLATFORM_ANDROID \
-		-DRENDERDOC_EXPORTS
+                -DRENDERDOC_PLATFORM_POSIX \
+                -DRENDERDOC_PLATFORM_ANDROID \
+                -DRENDERDOC_EXPORTS \
+                -std=c++11 -fstrict-aliasing \
+                -fvisibility=hidden -fvisibility-inlines-hidden \
+                -Wall \
+                -Wextra \
+                -Wno-unused-variable \
+                -Wno-unused-parameter \
+                -Wno-unused-result \
+                -Wno-type-limits \
+                -Wno-missing-field-initializers \
+                -Wno-unknown-pragmas \
+                -Wno-reorder
 # Do we need the following?: --include=$(SRC_DIR)/common/vulkan_wrapper.h
 
 LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
