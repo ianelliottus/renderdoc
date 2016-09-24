@@ -50,16 +50,13 @@ LOCAL_SRC_FILES += $(RDOC_SRC_DIR)/common/common.cpp \
 
 LOCAL_C_INCLUDES += $(RDOC_SRC_DIR) \
                     $(RDOC_SRC_DIR)/3rdparty
-
 MY_GIT_COMMIT_HASH := $(shell git rev-parse HEAD)
-
 LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
                 -DRENDERDOC_SUPPORT_VULKAN \
                 -DRENDERDOC_PLATFORM_POSIX \
                 -DRENDERDOC_PLATFORM_ANDROID \
                 -DRENDERDOC_EXPORTS \
                 -DGIT_COMMIT_HASH=\"$(MY_GIT_COMMIT_HASH)\" \
-                -std=c++11 -fstrict-aliasing \
                 -fvisibility=hidden -fvisibility-inlines-hidden \
                 -Wall \
                 -Wextra \
@@ -69,8 +66,14 @@ LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
                 -Wno-type-limits \
                 -Wno-missing-field-initializers \
                 -Wno-unknown-pragmas \
-                -Wno-reorder
+                -Wno-reorder \
+                -Wno-extra \
+                -Wno-unused-function \
+                -Wno-unknown-warning-option \
+                -Wno-shift-negative-value \
+                -Wno-invalid-noreturn
 # Do we need the following?: --include=$(SRC_DIR)/common/vulkan_wrapper.h
+LOCAL_CPPFLAGS += -std=c++11 -fstrict-aliasing
 
 LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
 LOCAL_LDLIBS    := -llog -landroid
