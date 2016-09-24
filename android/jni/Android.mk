@@ -51,3 +51,13 @@ LOCAL_SRC_FILES += $(RDOC_SRC_DIR)/common/common.cpp \
 LOCAL_C_INCLUDES += $(RDOC_SRC_DIR) \
                     $(RDOC_SRC_DIR)/3rdparty \
 
+LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
+                -DRENDERDOC_SUPPORT_VULKAN \
+		-DRENDERDOC_PLATFORM_POSIX \
+		-DRENDERDOC_PLATFORM_ANDROID \
+		-DRENDERDOC_EXPORTS
+# Do we need the following?: --include=$(SRC_DIR)/common/vulkan_wrapper.h
+
+LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
+LOCAL_LDLIBS    := -llog -landroid
+include $(BUILD_SHARED_LIBRARY)
