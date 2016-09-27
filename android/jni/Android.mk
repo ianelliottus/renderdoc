@@ -76,5 +76,5 @@ LOCAL_CFLAGS += -DVK_USE_PLATFORM_ANDROID_KHR \
 LOCAL_CPPFLAGS += -std=c++11 -fstrict-aliasing
 
 LOCAL_WHOLE_STATIC_LIBRARIES += android_native_app_glue
-LOCAL_LDLIBS    := -llog -landroid
+LOCAL_LDLIBS    := -lm -ldl -llog -landroid
 include $(BUILD_SHARED_LIBRARY)
